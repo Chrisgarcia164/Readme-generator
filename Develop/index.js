@@ -67,6 +67,12 @@ inquirer
       fs.writeFile("README.md", 
       `
 # ${response.title} 
+- [Description](#description)
+- [Installlation Instructions](#installation-instructions)
+- [Usage Information](#usage-information)
+- [Contribution Guidelines](#contribution-guidelines)
+- [Test instructions](#test-instructions)
+- [Questions](#questions)
 
 # Licensed by ${response.license}
 
@@ -89,7 +95,7 @@ ${response.test}
 
 ## Questions: 
 * Email: ${response.email}
-* GitHub: ${response.github}
+* GitHub: https://github.com/${response.github}
       `
       ,
        function(err) {
