@@ -36,7 +36,7 @@ inquirer
         name: 'test'
     },
     {
-        type: 'checkbox',
+        type: 'list',
         message: 'Please choose a license: ',
         name: 'license',
         choices: [
@@ -65,7 +65,33 @@ inquirer
   .then((response) => {
       console.log(response),
       fs.writeFile("README.md", 
-      "Hello World!",
+      `
+# ${response.title} 
+
+# Licensed by ${response.license}
+
+## Table of contents:
+
+## Description:
+${response.description}
+
+## Installation instructions:
+${response.installation}
+
+## Usage information:
+${response.usageInfo}
+
+## Contribution Guidelines:
+${response.guidelines}
+
+## Test instructions:
+${response.test}
+
+## Questions: 
+* Email: ${response.email}
+* GitHub: ${response.github}
+      `
+      ,
        function(err) {
         if(err) {
             return console.log(err);
