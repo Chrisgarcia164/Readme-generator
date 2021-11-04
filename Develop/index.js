@@ -34,11 +34,50 @@ inquirer
         type: 'input',
         message: 'Test instructions: ',
         name: 'test'
+    },
+    {
+        type: 'checkbox',
+        message: 'Please choose a license: ',
+        name: 'license',
+        choices: [
+            {
+                name: 'MIT',
+            },
+            {
+                name: 'Babel',
+            },
+            {
+                name: 'Rails',
+            },
+        ]
+    },
+    {
+        type: 'input',
+        message: 'What is your GitHub username?',
+        name: 'github',
+    },
+    {
+        type: 'input',
+        message: 'What is your email address? ',
+        name: 'email'
     }
   ])
+  .then((response) => {
+      console.log(response),
+      fs.writeFile("README.md", 
+      "Hello World!",
+       function(err) {
+        if(err) {
+            return console.log(err);
+        }
+        console.log("commit logged");
+    });
+  })
+
+
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(README, response) {}
 
 // TODO: Create a function to initialize app
 function init() {}
